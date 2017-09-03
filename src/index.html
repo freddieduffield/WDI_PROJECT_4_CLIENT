@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Project 4 Client</title>
-    <base href="/" />
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-  </body>
+<html ng-app="ldnFabric">
+<head>
+  <meta charset="utf-8">
+  <title>Doth like a garment wear</title>
+  <base href="/" />
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
+  <header>
+    <nav class="navbar navbar-light bg-faded">
+      <a class="navbar-brand" ui-sref="buildingsIndex">
+        <img id="map-logo" src="images/LondonSouthwark.svg" width="40" height="40" alt="">
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+        <span class="navbar-toggler-icon my-toggler"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="collapsingNavbar2">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+          </li>
+          <li class="nav-item" ng-hide="main.user">
+            <a ui-sref="register">Register</a>
+          </li>
+          <li class="nav-item" ng-hide="main.user">
+            <a ui-sref="login">Login</a>
+          </li>
+          <li class="nav-item" ng-show="main.user">
+            <a ng-click="main.logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" ui-view></main>
+</body>
 </html>

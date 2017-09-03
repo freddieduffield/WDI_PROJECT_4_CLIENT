@@ -1,6 +1,6 @@
 angular
  .module('ldnFabric')
- .controller('UsersEditController', UsersEditController);
+ .controller('UsersEditCtrl', UsersEditCtrl);
 
-UsersEditController.inject = [];
-function UsersEditController() {}
+UsersEditCtrl.inject = [];
+function UsersEditCtrl() {}

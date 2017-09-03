@@ -1,6 +1,8 @@
 angular
- .module('ldnFabric')
- .config(Interceptor);
+.module('ldnFabric')
+.config(Interceptor);
 
-Interceptor.inject =[];
-function Interceptor() {}
+Interceptor.inject =['$httpProvider'];
+function Interceptor($httpProvider) {
+  return $httpProvider.interceptors.push('AuthInterceptor');
+}

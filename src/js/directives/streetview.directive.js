@@ -1,6 +1,6 @@
 angular
  .module('ldnFabric')
- .directive('StreetView', StreetView);
+ .directive('streetView', streetView);
 
-StreetView.inject = [];
-function StreetView() {}
+streetView.inject = [];
+function streetView() {}

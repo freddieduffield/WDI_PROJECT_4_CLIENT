@@ -1,6 +1,18 @@
 angular
- .module('ldnFabric')
- .controller('RegisterCtrl', RegisterCtrl);
+.module('ldnFabric')
+.controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.inject = [];
-function RegisterCtrl() {}
+RegisterCtrl.inject = ['User', 'CurrentUserService'];
+function RegisterCtrl(User, CurrentUserService) {
+  const vm    = this;
+
+  vm.register =  () => {
+    User
+    .register(vm.user).$promise
+    .then(() => {
+      CurrentUserService.getUser();
+    }, err => {
+      console.log(err);
+    });
+  };
+}

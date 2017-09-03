@@ -1,0 +1,43 @@
+<h1>hello</h1>
+<div class="google-map">
+  <google-map id="map"></google-map>
+</div>
+
+<div class="pac-card" id="pac-card" >
+  <div>
+    <div id="title" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
+      <p style="text-align: center">PLAN YOUR TRIP</p>
+    </div>
+
+    <div id="pac-container" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
+      <input id="pac-input" type="text"
+      placeholder="Enter a location">
+    </div>
+  </div>
+
+  <div class="destinations">
+    <form ng-submit="controller.addDestination()">
+      <label for="name"></label>
+      <input type="hidden" name="name" id="name" placeholder="name" value="{{name}}" ng-model="controller.destination.name">
+      <label for="description"></label>
+      <input type="hidden" name="description" id="description" value="{{description}}" placeholder="type" ng-model="controller.destination.description">
+
+      <label for="lat"></label>
+      <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="controller.destination.lat">
+
+      <label for="long"></label>
+      <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="controller.destination.long">
+
+      <button type="submit" name="button" class="pure-button" id="addBtn" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Add Destination</button>
+    </form>
+  </div>
+  <h3 id="currentDestination">Current Destinations</h3>
+  <div class="pac-card2">
+    <ul class="destination-list">
+      <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination($event, destination)" ng-class="{selected: item}" class="destination-card">
+        {{ destination.name | limitTo : 35 }}
+        <button class="pure-button" ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
