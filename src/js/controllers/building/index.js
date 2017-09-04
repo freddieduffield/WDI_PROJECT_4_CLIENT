@@ -3,4 +3,6 @@ angular
  .controller('BuildingsIndexCtrl', BuildingsIndexCtrl);
 
 BuildingsIndexCtrl.inject = [];
-function BuildingsIndexCtrl() {}
+function BuildingsIndexCtrl() {
+
+}

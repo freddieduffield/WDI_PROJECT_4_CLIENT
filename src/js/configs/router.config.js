@@ -25,7 +25,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   })
   .state('buildingsIndex', {
     url: '/buildings',
-    templateUrl: '/js/view/buildings/index.html',
+    templateUrl: '/js/views/buildings/index.html',
     controller: 'BuildingsIndexCtrl',
     controllerAs: 'vm'
   })
