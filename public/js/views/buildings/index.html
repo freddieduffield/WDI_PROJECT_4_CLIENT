@@ -1,4 +1,4 @@
 <h1>hello</h1>
-{{vm.buildings}}
 
-<h1 ng-repeat="buildings in vm.buildings">{{buildings}}</h1>
+
+<h1 ng-repeat="building in vm.buildings"><a ui-sref="buildingsShow({id: building.id})">{{building.name}}</a></h1>
