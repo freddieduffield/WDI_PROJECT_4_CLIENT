@@ -1,2 +1,41 @@
 <h1>Hello world-city</h1>
 <google-map id="map"></google-map>
+<div class="pac-card" id="pac-card" >
+
+  <div>
+    <div id="title">
+      <p style="text-align: center">PLAN YOUR TRIP</p>
+    </div>
+
+    <div id="pac-container">
+      <input id="pac-input" type="text"
+      placeholder="Enter a location">
+    </div>
+  </div>
+
+  <div class="destinations">
+    <form ng-submit="vm.addDestination()">
+      <label for="name"></label>
+      <input type="hidden" name="name" id="name" placeholder="name" value="{{vm.building.name}}" ng-model="vm.destination.name">
+      <label for="description"></label>
+      <input type="hidden" name="description" id="description" value="{{description}}" placeholder="type" ng-model="vm.building.description">
+
+      <label for="lat"></label>
+      <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="vm.building.lat">
+
+      <label for="long"></label>
+      <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="vm.building.long">
+
+      <button type="submit" name="button" class="pure-button" id="addBtn">Add Destination</button>
+    </form>
+  </div>
+  <h3 id="currentDestination">Current Destinations</h3>
+  <div class="pac-card2">
+    <ul class="destination-list">
+      <li ng-repeat="destination in vm.buildingsFactory.destinations" ng-click="vm.centerMapOnDestination($event, destination)" ng-class="{selected: item}" class="destination-card">
+        {{ destination.name | limitTo : 35 }}
+        <button class="pure-button" ng-click="vm.removeDestination(destination)" ng-show="MainCtrl.user._id === vm.buildingsFactory.createdBy._id">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>

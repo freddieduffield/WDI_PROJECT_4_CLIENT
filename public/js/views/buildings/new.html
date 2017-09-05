@@ -26,18 +26,17 @@
     <input class="form-control" type="text" value="" id="building-image-input" ng-model="vm.building.image">
   </div>
 </div>
-<!-- <div class="form-group row">
+<div class="form-group row">
    <label for="exampleSelect1" class="col-2 col-form-label">Period</label>
    <div class="col-10">
-     <select class="form-control" id="exampleSelect1" ng-repeat="period in vm.periods" ng-model="vm.building.period_id">
-       <option>{{vm.period.}}</option>
-       <option>2</option>
-       <option>3</option>
-       <option>4</option>
-       <option>5</option>
+     <select class="form-control" id="exampleSelect1"  ng-model="vm.building.period_id">
+       <option ng-repeat="period in vm.period">{{period.name }}</option>
      </select>
    </div>
- </div> -->
+ </div>
+ <div class="form-group row">
  <button type="submit" class="btn btn-primary">Submit</button>
-
+</div>
 </form>
+
+{{vm.period}}
