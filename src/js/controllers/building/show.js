@@ -2,68 +2,46 @@ angular
 .module('ldnFabric')
 .controller('BuildingsShowCtrl', BuildingsShowCtrl);
 
-BuildingsShowCtrl.inject = ['$stateParams', 'Building', '$rootScope', '$scope'];
-function BuildingsShowCtrl($stateParams, Building, $rootScope, $scope) {
+BuildingsShowCtrl.inject = ['$stateParams', 'Building', 'Material', 'CurrentUserService', '$state'];
+function BuildingsShowCtrl($stateParams, Building, Material, CurrentUserService, $state) {
   const vm = this;
 
+  // vm.building = {};
+  vm.material = {};
+
+  vm.materials = Material.query();
   vm.building = Building.get({ id: $stateParams.id });
-  vm.destination            = {};
-  vm.placeData              = {};
-  vm.addDestination         = addDestination;
-  vm.removeDestination      = removeDestination;
-  vm.centerMapOnDestination = centerMapOnDestination;
+  vm.addMaterial = addMaterial;
+  vm.materialDelete = materialDelete;
+  console.log(vm.materials);
 
-  Building
-  .get({ id: $stateParams.id})
-  .$promise
-  .then(data => {
-    vm.buildings = data;
-    $rootScope.$broadcast('destinationData', {
-      data: vm.buildings.destinations
-    });
-  });
 
-  $rootScope.$on('gotPlaceData', (event, args) => {
-    vm.destination.name = args.placeData.name;
-    vm.destination.lat  = args.placeData.lat;
-    vm.destination.long = args.placeData.lng;
-    vm.destination.description = args.placeData.description;
-    $scope.$apply();
-  });
+  function addMaterial(){
+    vm.material = {title: vm.material.title, body: vm.material.body, image: vm.material.image, user_id: CurrentUserService.currentUser.id, building_id: $stateParams.id};
+    console.log(vm.material);
 
-  function addDestination(){
-    Building
-    .addDestination({ id: vm.buildings._id }, vm.destination)
+    Material
+    .save({material: vm.material})
     .$promise
-    .then(buildings =>{
-      vm.buildings.destinations = buildings.destinations;
-      vm.destination = {};
-      $rootScope.$broadcast('updatedDestinations', { data: vm.buildings.destinations });
+    .then(data => {
+      // console.log(data);
+      // console.log('Your material has been successfully added! Thank you!');
+      vm.building.materials.push(data);
+      $state.reload();
     });
+
+      // $state.go('buildingsShow', $stateParams);
+    // });
   }
 
-  function removeDestination(destination){
-    Building
-    .removeDestination({ groupId: vm.buildings._id, destinationId: destination._id} )
+  function materialDelete(materialId) {
+    console.log(materialId);
+    Material
+    .delete({id: materialId})
     .$promise
-    .then(() =>{
-      vm.buildings.destinations.splice(vm.buildings.destinations.indexOf(destination), 1);
-      $rootScope.$broadcast('updatedDestinations', { data: vm.buildings.destinations });
-      vm.destination = {};
+    .then(() => {
+      // $state.go('buildingsShow');
+      $state.reload();
     });
   }
-
-  // $scope.item = false;
-  function centerMapOnDestination(event, destination) {
-    angular.element(event.target).parent().children().removeClass('selected');
-    console.log(angular.element(event.target).parent().children());
-    if (!(event.target.classList.contains('selected'))) {
-      event.target.className += ' selected';
-    }
-    $rootScope.$broadcast('centerMapOnDestination', {
-      data: destination
-    });
-    // $scope.item = true;
-  }
-
 }
