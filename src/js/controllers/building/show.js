@@ -2,32 +2,32 @@ angular
 .module('ldnFabric')
 .controller('BuildingsShowCtrl', BuildingsShowCtrl);
 
-BuildingsShowCtrl.inject = ['$stateParams', 'Building', 'Material', 'CurrentUserService', '$state'];
-function BuildingsShowCtrl($stateParams, Building, Material, CurrentUserService, $state) {
+BuildingsShowCtrl.inject = ['$stateParams', 'Building', 'Material', 'Favourite', 'CurrentUserService', '$state'];
+function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentUserService, $state) {
   const vm = this;
 
   // vm.building = {};
   vm.material = {};
-
-  vm.materials = Material.query();
+  vm.favourite = {};
   vm.building = Building.get({ id: $stateParams.id });
   vm.addMaterial = addMaterial;
   vm.materialDelete = materialDelete;
+  vm.addFavourite = addFavourite;
+
   console.log(vm.materials);
 
 
   function addMaterial(){
-    vm.material = {title: vm.material.title, body: vm.material.body, image: vm.material.image, user_id: CurrentUserService.currentUser.id, building_id: $stateParams.id};
-    console.log(vm.material);
+    vm.material.user_id = CurrentUserService.currentUser.id;
+    vm.material.building_id = parseInt($stateParams.id);
 
     Material
     .save({material: vm.material})
     .$promise
     .then(data => {
-      // console.log(data);
       // console.log('Your material has been successfully added! Thank you!');
       vm.building.materials.push(data);
-      $state.reload();
+      // $state.reload();
     });
 
       // $state.go('buildingsShow', $stateParams);
@@ -35,7 +35,6 @@ function BuildingsShowCtrl($stateParams, Building, Material, CurrentUserService,
   }
 
   function materialDelete(materialId) {
-    console.log(materialId);
     Material
     .delete({id: materialId})
     .$promise
@@ -43,5 +42,32 @@ function BuildingsShowCtrl($stateParams, Building, Material, CurrentUserService,
       // $state.go('buildingsShow');
       $state.reload();
     });
+  }
+
+  function addFavourite() {
+    vm.favourite = {
+      user_id: CurrentUserService.currentUser.id,
+      building_id: parseInt($stateParams.id)
+    };
+
+    console.log(vm.favourite);
+
+    Favourite
+      .save(vm.favourite)
+      .$promise
+      .then(() => {
+        console.log('favourite was saved!');
+      });
+
+    // vm.favourite.user_id = CurrentUserService.currentUser.id;
+    // vm.favourite.building_id = parseInt($stateParams.id);
+    // console.log(favourite);
+    // Favourite
+    // .save({id: favourite}, {vm.favourite});
+    // .then(data => {
+    //   console.log(data);
+    // //   // vm.favourite.push(data);
+    //   // $state.reload();
+    // });
   }
 }

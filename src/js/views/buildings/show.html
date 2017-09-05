@@ -1,27 +1,20 @@
 <img src="{{vm.building.image}}" alt="">
 <h3><a ui-sref="buildingsEdit({id: vm.building.id})">edit</a></h3>
 
+<div ng-click="vm.hideMaterialForm = !vm.hideMaterialForm">
+  Add Material
+</div>
 
 
-<ul ng-repeat="material in vm.materials">
-<li>
-  <img src="{{material.image}}" alt="">
-  <h3>{{material.title}}</h3>
-  <p>{{material.body}}</p>
-  <button ng-click="vm.materialDelete(material.id)" name="btn">X</button>
-</li>
-</ul>
-
-
-<form ng-submit="vm.addMaterial()">
+<form ng-show="vm.hideMaterialForm" ng-submit="vm.addMaterial()">
   <div class="form-group row">
-    <label for="material-title-input" class="col-2 col-form-label">Location</label>
+    <label for="material-title-input" class="col-2 col-form-label">Title</label>
     <div class="col-10">
       <input class="form-control" type="text" value="" id="material-title-input" ng-model="vm.material.title">
     </div>
   </div>
   <div class="form-group row">
-    <label for="exampleTextarea" class="col-2 col-form-label">Info</label>
+    <label for="exampleTextarea" class="col-2 col-form-label">Body</label>
     <div class="col-10">
      <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
    </div>
@@ -36,3 +29,17 @@
   <button type="submit" class="btn btn-primary">Submit</button>
  </div>
 </form>
+
+<ul ng-repeat="material in vm.building.materials">
+<li>
+  <img src="{{material.image}}" alt="">
+  <h3>{{material.title}}</h3>
+  <p>{{material.body}}</p>
+  <button ng-click="vm.materialDelete(material.id)" class="btn btn-primary">X</button>
+</li>
+</ul>
+
+
+<div ng-click="vm.addFavourite()">
+Like
+</div>

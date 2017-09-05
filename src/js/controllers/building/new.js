@@ -6,9 +6,10 @@ BuildingsNewCtrl.inject = ['Building', '$state', 'Period'];
 function BuildingsNewCtrl($state, Building, Period) {
   const vm = this;
 
+  // vm.addPeriodToBuilding = addPeriodToBuilding;
   vm.addBuilding = addBuilding;
   vm.building    =  {};
-  vm.period = Period.query();
+  vm.periods = Period.query();
 
   function  addBuilding() {
     Building
@@ -16,4 +17,10 @@ function BuildingsNewCtrl($state, Building, Period) {
     .$promise
     .then(() => $state.go('buildingsIndex'));
   }
+
+  // function addPeriodToBuilding() {
+  //   Period
+  //   .
+  // }
+
 }
