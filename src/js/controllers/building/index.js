@@ -1,6 +1,6 @@
 angular
- .module('ldnFabric')
- .controller('BuildingsIndexCtrl', BuildingsIndexCtrl);
+.module('ldnFabric')
+.controller('BuildingsIndexCtrl', BuildingsIndexCtrl);
 
 BuildingsIndexCtrl.inject = ['Building'];
 function BuildingsIndexCtrl(Building) {

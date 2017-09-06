@@ -8,4 +8,5 @@ function UsersShowCtrl(User, $stateParams) {
   vm.user = {};
 
   vm.user = User.get({ id: $stateParams.id });
+  
 }

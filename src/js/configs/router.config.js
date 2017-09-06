@@ -61,8 +61,14 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   })
   .state('periodsIndex', {
     url: '/periods',
-    templateUrl: '/js/views/periods/index.html',
+    templateUrl: '/js/views/periods/periods.index.html',
     controller: 'periodsIndexCtrl',
+    controllerAs: 'vm'
+  })
+  .state('periodsShow', {
+    url: '/periods/:id',
+    templateUrl: '/js/views/periods/periods.show.html',
+    controller: 'periodsShowCtrl',
     controllerAs: 'vm'
   });
 

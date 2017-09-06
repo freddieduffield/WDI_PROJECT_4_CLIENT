@@ -1,6 +1,15 @@
-<h1>hello</h1>
 
-
-<h1 ng-repeat="building in vm.buildings"><a ui-sref="buildingsShow({id: building.id})">{{building.name}}</a></h1>
+<!-- {{vm.buildings}} -->
+<div ng-hide="vm.hideIndex">
+<ul ng-repeat="building in vm.buildings">
+  <li><h1><a ui-sref="buildingsShow({id: building.id})">{{building.name}}</a></h1></li>
+</ul>
+</div>
 
 <h5><a ui-sref="buildingsNew">New Buidling</a></h5>
+
+
+<div ng-click="vm.hideIndex = !vm.hideIndex; vm.hideMap = !vm.hideMap">
+  <img id="map-logo" src="images/LondonSouthwark.svg" width="40" height="40" alt="">
+</div>
+<google-map ng-show="vm.hideMap" buildings="vm.buildings"></google-map>

@@ -14,7 +14,7 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
   vm.materialDelete = materialDelete;
   vm.addFavourite = addFavourite;
 
-  console.log(vm.materials);
+
 
 
   function addMaterial(){
@@ -58,16 +58,5 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
       .then(() => {
         console.log('favourite was saved!');
       });
-
-    // vm.favourite.user_id = CurrentUserService.currentUser.id;
-    // vm.favourite.building_id = parseInt($stateParams.id);
-    // console.log(favourite);
-    // Favourite
-    // .save({id: favourite}, {vm.favourite});
-    // .then(data => {
-    //   console.log(data);
-    // //   // vm.favourite.push(data);
-    //   // $state.reload();
-    // });
   }
 }

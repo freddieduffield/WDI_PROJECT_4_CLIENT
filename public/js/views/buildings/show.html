@@ -1,3 +1,4 @@
+{{vm.building.lat}}
 <img src="{{vm.building.image}}" alt="">
 <h3><a ui-sref="buildingsEdit({id: vm.building.id})">edit</a></h3>
 
@@ -39,7 +40,13 @@
 </li>
 </ul>
 
+{{vm.building.lat}} {{vm.building.long}}
+<street-view center="{ lat: vm.building.lat, lng: vm.building.long }"></street-view>
 
 <div ng-click="vm.addFavourite()">
 Like
+</div>
+Other fans of this building
+<div ng-repeat="users in vm.building.users">
+  {{users.username}}
 </div>
