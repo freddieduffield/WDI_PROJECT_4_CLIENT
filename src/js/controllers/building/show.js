@@ -57,6 +57,7 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
       .$promise
       .then(() => {
         console.log('favourite was saved!');
+        $state.reload();
       });
   }
 }

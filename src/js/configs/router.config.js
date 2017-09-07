@@ -61,7 +61,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   })
   .state('periodsIndex', {
     url: '/periods',
-    templateUrl: '/js/views/periods/periods.index.html',
+    templateUrl: '/js/views/periods/index.html',
     controller: 'periodsIndexCtrl',
     controllerAs: 'vm'
   })
