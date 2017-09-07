@@ -1,4 +1,7 @@
-{{vm.period}}
-<ul ng-repeat="period in vm.periods">
-  <li ui-sref="periodsShow({id: period.id})">{{period.name}}</li>
-</ul>
+
+<div class="row">
+  <ul class="categories-container" ng-repeat="period in vm.periods">
+    <li class="col-xs-6 period-link" ng-class="{red: hover}" ng-mouseenter="hover = true"
+    ng-mouseleave="hover = false" ui-sref="periodsShow({id: period.id})">{{period.name}}<img src="{{period.image}}" alt=""></li>
+  </ul>
+</div>

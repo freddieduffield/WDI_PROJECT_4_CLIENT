@@ -10,20 +10,18 @@
   <!-- inject:css -->
   <!-- endinject -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6m09rnmEQZhYR00fyEYxL1p3Rq2TYGtI&libraries=places"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
     <!-- <script src="../jsPacks/placeMe.js"></script> -->
 
 </head>
 <body ng-controller="MainCtrl as main">
   <header>
-    <nav class="navbar navbar-light bg-faded">
+    <nav ng-hide="homepage " class="navbar navbar-light bg-faded">
 
 
-      <a class="navbar-brand" ui-sref="buildingsIndex">
-      <!-- <div ng-click="vm.hideMap = !vm.hideMap"> -->
-        <img id="map-logo" src="images/LondonSouthwark.svg" width="40" height="40" alt="">
-      <!-- </div> -->
-
-      </a>
+      <a class="navbar-brand" ui-sref="periodsIndex">
+        <img id="map-logo" src="images/header.svg" width="100" height="100" alt="">
+    </a>
 
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
         <span class="navbar-toggler-icon my-toggler"></span>
@@ -69,7 +67,7 @@
       <button type="submit" name="button" id="addBtn" ng-show="MainCtrl.user._id === vm.group.createdBy._id">Add Destination</button>
     </form>
   </div> -->
-  <main class="container" ui-view>
+  <main class="container-fluid" ui-view>
 
   </main>
 </body>

@@ -1,2 +1,15 @@
 @import 'nav';
 @import 'maps';
+@import 'index';
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,800');
+
+// $main-font: 'Work Sans', sans-serif;
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30px;
+}
+
+a {
+  cursor: pointer;
+}

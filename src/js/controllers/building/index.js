@@ -7,5 +7,4 @@ function BuildingsIndexCtrl(Building) {
   const vm = this;
 
   vm.buildings = Building.query();
-
 }

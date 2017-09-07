@@ -25,7 +25,7 @@ function googleMap($window) {
             animation: $window.google.maps.Animation.DROP
           });
         });
-      }, 200);
+      }, 900);
     }
   };
   return directive;
