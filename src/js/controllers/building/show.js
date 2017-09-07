@@ -13,6 +13,8 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
   vm.addMaterial = addMaterial;
   vm.materialDelete = materialDelete;
   vm.addFavourite = addFavourite;
+  vm.likedForm = false;
+
 
 
 
@@ -45,19 +47,22 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
   }
 
   function addFavourite() {
+    vm.likedForm = true;
     vm.favourite = {
       user_id: CurrentUserService.currentUser.id,
       building_id: parseInt($stateParams.id)
     };
 
     console.log(vm.favourite);
+    console.log(vm.likedForm);
 
     Favourite
       .save(vm.favourite)
       .$promise
       .then(() => {
         console.log('favourite was saved!');
-        $state.reload();
+        // $state.reload();
       });
+
   }
 }

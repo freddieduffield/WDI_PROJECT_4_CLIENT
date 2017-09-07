@@ -1,6 +1,8 @@
 @import 'nav';
 @import 'maps';
 @import 'index';
+@import 'show';
+@import 'home';
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:100,800');
 
@@ -8,6 +10,7 @@
 body {
   font-family: 'Work Sans', sans-serif;
   font-size: 30px;
+  text-align: center;
 }
 
 a {

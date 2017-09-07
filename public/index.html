@@ -21,7 +21,7 @@
     <nav ng-hide="homepage " class="navbar navbar-light bg-faded">
 
 
-      <a class="navbar-brand" ui-sref="periodsIndex">
+      <a class="navbar-brand" ui-sref="homepage">
         <img id="map-logo" src="images/header.svg" width="100" height="100" alt="">
     </a>
 
@@ -37,6 +37,12 @@
           <!-- <li class="nav-item" ng-show="main.user">
             <a ui-sref="periodsShow">Periods</a>
           </li> -->
+          <li class="nav-item">
+            <a ui-sref="buildingsIndex">Architecture</a>
+          </li>
+          <li class="nav-item">
+            <a ui-sref="periodsIndex">Period</a>
+          </li>
           <li class="nav-item" ng-hide="main.user">
             <a ui-sref="register">Register</a>
           </li>

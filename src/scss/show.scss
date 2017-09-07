@@ -1,0 +1,57 @@
+.link-point {
+  cursor: pointer;
+}
+
+.main-img{
+  max-width: 400px;
+  height: auto;
+}
+
+.padding-for-links{
+  margin: 0 125px;
+
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image2 {
+  position: absolute;
+  top: 30px;
+  left: 170px;
+  z-index: 2;
+
+}
+
+.text-width {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+.roundImage{
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  clear: both;
+  border: 3px solid white;
+}
+
+.facebook {
+  margin-top: 75px;
+}
+
+.twitter {
+  margin-bottom: 100px;
+}

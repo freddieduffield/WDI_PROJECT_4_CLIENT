@@ -1,9 +1,49 @@
-{{vm.building.lat}}
-<img src="{{vm.building.image}}" alt="">
-<h3><a ui-sref="buildingsEdit({id: vm.building.id})">edit</a></h3>
+<div class="parent">
+  <street-view class="image1" center="{ lat: vm.building.lat, lng: vm.building.long }"></street-view>
 
-<div ng-click="vm.hideMaterialForm = !vm.hideMaterialForm">
-  Add Material
+  <div class="row">
+
+<div class="circle">
+    <div class="mx-auto d-block">
+      <img class="roundImage image2 main-img img-responsive" src="{{vm.building.image}}" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="image2 building-title">
+  <h1><strong>{{vm.building.name}}</strong></h1>
+</div>
+<div class="text-width">
+  <div class="facebook">
+    {{vm.building.description}}
+  </div>
+</div>
+
+<div class="col-xs-3 link-point facebook twitter">
+  additional material
+</div>
+<ul ng-repeat="material in vm.building.materials">
+  <li>
+
+    <img class="" src="{{material.image}}" alt="">
+
+    <h3><strong>{{material.title}}</strong></h3>
+    <p>{{material.body}}</p>
+    <button ng-click="vm.materialDelete(material.id)" class="btn btn-primary">X</button>
+  </li>
+</ul>
+
+
+<div class="row text-width">
+
+
+</div>
+
+
+
+<div class="col-xs-3 link-point padding-for-links" ui-sref="buildingsEdit({id: vm.building.id})">edit</div>
+<div class="col-xs-3 link-point padding-for-links" ng-click="vm.hideMaterialForm = !vm.hideMaterialForm">
+  add material
 </div>
 
 
@@ -17,8 +57,8 @@
   <div class="form-group row">
     <label for="exampleTextarea" class="col-2 col-form-label">Body</label>
     <div class="col-10">
-     <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
-   </div>
+      <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
+    </div>
   </div>
   <div class="form-group row">
     <label for="additional-image-input" class="col-2 col-form-label">Image</label>
@@ -27,26 +67,16 @@
     </div>
   </div>
   <div class="form-group row">
-  <button type="submit" class="btn btn-primary">Submit</button>
- </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
 
-<ul ng-repeat="material in vm.building.materials">
-<li>
-  <img src="{{material.image}}" alt="">
-  <h3>{{material.title}}</h3>
-  <p>{{material.body}}</p>
-  <button ng-click="vm.materialDelete(material.id)" class="btn btn-primary">X</button>
-</li>
-</ul>
 
-{{vm.building.lat}} {{vm.building.long}}
-<street-view center="{ lat: vm.building.lat, lng: vm.building.long }"></street-view>
-
-<div ng-click="vm.addFavourite()">
-Like
+<div class="col-xs-3 link-point padding-for-links" ng-click="vm.addFavourite()">
+  like
 </div>
-Other fans of this building
-<div ng-repeat="users in vm.building.users">
+
+<div ng-show="vm.likedForm" ng-repeat="users in vm.building.users">
+
   {{users.username}}
 </div>
