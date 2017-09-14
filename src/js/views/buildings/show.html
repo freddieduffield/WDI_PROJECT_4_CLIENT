@@ -25,9 +25,9 @@
 <ul ng-repeat="material in vm.building.materials">
   <li>
 
-    <img class="" src="{{material.image}}" alt="">
+    <img src="{{material.image}}">
 
-    <h3 class""><strong>{{material.title}}</strong></h3>
+    <h3><strong>{{material.title}}</strong></h3>
     <p>{{material.body}}</p>
     <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
   </li>
