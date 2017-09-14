@@ -15,7 +15,7 @@ function googleMap($window) {
       setTimeout(function() {
         const map = new $window.google.maps.Map(element[0], {
           zoom: 12,
-          center: {lat: 51.510754, lng: -0.099317}
+          center: {lat: 51.5152519, lng: -0.0745329}
         });
         scope.buildings.forEach(building => {
           console.log(building);

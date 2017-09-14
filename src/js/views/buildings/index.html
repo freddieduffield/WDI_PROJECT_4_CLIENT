@@ -3,7 +3,7 @@
     <li><h1><a ui-sref="buildingsShow({id: building.id})">{{building.name}}</a></h1></li>
   </ul>
 </div>
-<h5><a ui-sref="buildingsNew">New Buidling</a></h5>
+
 <div ng-click="vm.hideIndex = !vm.hideIndex; vm.hideMap = !vm.hideMap">
   <img id="map-logo" src="images/LondonSouthwark.svg" width="40" height="40" alt="">
 </div>
@@ -18,6 +18,7 @@
     <li><h1><a ui-sref="buildingsShow({id: building.id})">{{building.name}}</a></h1></li>
   </ul>
 </div>
-<div ng-show="vm.toggle" class="buildings-googlemap">
+<h5><a ui-sref="buildingsNew">New Buidling</a></h5>
+<div ng-show="vm.toggle" class="buildings-googlemap link-point">
   <google-map buildings="vm.buildings"></google-map>
 </div>

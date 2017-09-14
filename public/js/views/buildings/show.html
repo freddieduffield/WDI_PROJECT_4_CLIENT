@@ -19,25 +19,21 @@
   </div>
 </div>
 
-<div class="col-xs-3 link-point facebook twitter">
-  additional material
+<div class="col-xs-3  link-point facebook twitter">
+  <strong>additional material</strong>
 </div>
 <ul ng-repeat="material in vm.building.materials">
   <li>
 
     <img class="" src="{{material.image}}" alt="">
 
-    <h3><strong>{{material.title}}</strong></h3>
+    <h3 class""><strong>{{material.title}}</strong></h3>
     <p>{{material.body}}</p>
-    <button ng-click="vm.materialDelete(material.id)" class="btn btn-primary">X</button>
+    <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
   </li>
 </ul>
 
 
-<div class="row text-width">
-
-
-</div>
 
 
 
@@ -47,7 +43,7 @@
 </div>
 
 
-<form ng-show="vm.hideMaterialForm" ng-submit="vm.addMaterial()">
+<form ng-show="vm.hideMaterialForm " ng-submit="vm.addMaterial()">
   <div class="form-group row">
     <label for="material-title-input" class="col-2 col-form-label">Title</label>
     <div class="col-10">
@@ -67,16 +63,17 @@
     </div>
   </div>
   <div class="form-group row">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-10">
+      <button type="submit" class="btn ">Submit</button>
+    </div>
   </div>
 </form>
 
 
-<div class="col-xs-3 link-point padding-for-links" ng-click="vm.addFavourite()">
+<div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
   like
 </div>
 
 <div ng-show="vm.likedForm" ng-repeat="users in vm.building.users">
-
   {{users.username}}
 </div>
