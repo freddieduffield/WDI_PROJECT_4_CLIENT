@@ -4,7 +4,8 @@
   "description": "Project",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && gulp deploy"
+    "postinstall": "bower install && gulp deploy",
+    "start": "node index.js"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
