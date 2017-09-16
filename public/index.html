@@ -13,7 +13,7 @@
   <!-- endinject -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6m09rnmEQZhYR00fyEYxL1p3Rq2TYGtI&libraries=places"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
-    <!-- <script src="../jsPacks/placeMe.js"></script> -->
+  
 
 </head>
 <body ng-controller="MainCtrl as main">
@@ -56,27 +56,6 @@
       </div>
     </nav>
   </header>
-
-  <!-- <input id="pac-input" type="text"
-    placeholder="Enter a location">
-    <div class="destinations">
-
-    <form ng-submit="vm.addBuilding()">
-      <label for="name"></label>
-      <input type="hidden" name="name" id="name" placeholder="name" value="{{name}}" ng-model="vm.building.name">
-      <label for="description"></label>
-
-      <label for="lat"></label>
-      <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="vm.building.lat">
-
-      <label for="long"></label>
-      <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="vm.building.long">
-
-      <button type="submit" name="button" id="addBtn" ng-show="MainCtrl.user._id === vm.group.createdBy._id">Add Destination</button>
-    </form>
-  </div> -->
-  <main class="container-fluid" ui-view>
-
-  </main>
+  <main class="container-fluid" ui-view></main>
 </body>
 </html>
