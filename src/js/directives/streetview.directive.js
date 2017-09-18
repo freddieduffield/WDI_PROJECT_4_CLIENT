@@ -2,6 +2,8 @@ angular
 .module('ldnFabric')
 .directive('streetView', streetView);
 
+/* global google:ignore */
+
 streetView.inject = ['$window'];
 function streetView($window) {
   const directive =  {

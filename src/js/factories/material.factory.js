@@ -1,9 +1,9 @@
 angular
 .module('ldnFabric')
-.factory('Material', materialFactory);
+.factory('Material', MaterialFactory);
 
-materialFactory.inject = ['$resource', 'API'];
-function materialFactory($resource, API) {
+MaterialFactory.inject = ['$resource', 'API'];
+function MaterialFactory($resource, API) {
   return $resource(`${API}/materials/:id`, { id: '@_id'},
     {
       'update': { method: 'PUT' }
