@@ -2,7 +2,7 @@ angular
  .module('ldnFabric')
  .service('TokenService', TokenService);
 
-TokenService.inject = [];
+TokenService.inject = ['$window', 'jwtHelper'];
 function TokenService($window, jwtHelper) {
   const self = this;
 
