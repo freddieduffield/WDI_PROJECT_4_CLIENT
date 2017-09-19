@@ -395,6 +395,15 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-angularjs-annotate@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-angularjs-annotate/-/babel-plugin-angularjs-annotate-0.8.0.tgz#e0e10877555fe62b4e020cfc2fe7cbd28c110909"
+  dependencies:
+    babel-code-frame "^6.22.0"
+    babel-plugin-transform-es2015-function-name "^6.24.1"
+    babel-types "^6.25.0"
+    simple-is "~0.2.0"
+
 babel-plugin-check-es2015-constants@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-check-es2015-constants/-/babel-plugin-check-es2015-constants-6.22.0.tgz#35157b101426fd2ffd3da3f75c7d1e91835bbf8a"
