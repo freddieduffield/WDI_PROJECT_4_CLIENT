@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .config(Router);
 
-Router.inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+Router.inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'httpProvider', 'BuildingsShowCtrl', 'RegisterCtrl', 'LoginCtrl', 'BuildingsIndexCtrl', 'BuildingsNewCtrl', 'UsersEditCtrl', 'UsersShowCtrl', 'periodsIndexCtrl', 'periodsShowCtrl'];
 function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
@@ -41,12 +41,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'BuildingsShowCtrl',
     controllerAs: 'vm'
   })
-  .state('buildingsEdit', {
-    url: '/buildings/:id/edit',
-    templateUrl: '/js/views/buildings/edit.html',
-    controller: 'BuildingsEditCtrl',
-    controllerAs: 'vm'
-  })
+  // .state('buildingsEdit', {
+  //   url: '/buildings/:id/edit',
+  //   templateUrl: '/js/views/buildings/edit.html',
+  //   controller: 'BuildingsEditCtrl',
+  //   controllerAs: 'vm'
+  // })
   .state('usersEdit', {
     url: '/users/:id/edit',
     templateUrl: '/js/views/users/edit.html',
