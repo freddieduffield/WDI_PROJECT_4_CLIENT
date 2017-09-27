@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.inject = ['User', 'CurrentUserService', '$state'];
+RegisterCtrl.$inject = ['User', 'CurrentUserService', '$state'];
 function RegisterCtrl(User, CurrentUserService, $state) {
   const vm    = this;
 

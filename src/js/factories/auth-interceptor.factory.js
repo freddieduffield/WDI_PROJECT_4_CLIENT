@@ -1,6 +1,9 @@
 angular
 .module('ldnFabric')
-.factory('AuthInterceptor', ['API', 'TokenService', function (API, TokenService){
+.factory('AuthInterceptor', AuthInterceptor);
+
+AuthInterceptor.$inject = ['API', 'TokenService'];
+function AuthInterceptor(API, TokenService){
   return  {
     request(config){
       const token = TokenService.getToken();
@@ -16,9 +19,9 @@ angular
       return res;
     }
   };
-}]);
+}
 
-// AuthInterceptor.inject = ['API', 'TokenService'];
+// AuthInterceptor.$inject = ['API', 'TokenService'];
 // function AuthInterceptor(API, TokenService) {
 //   return  {
 //     request(config){

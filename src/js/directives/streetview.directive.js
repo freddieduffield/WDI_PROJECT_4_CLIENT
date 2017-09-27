@@ -4,7 +4,7 @@ angular
 
 /* global google:ignore */
 
-streetView.inject = ['$window'];
+streetView.$inject = ['$window'];
 function streetView($window) {
   const directive =  {
     restrict: 'E',

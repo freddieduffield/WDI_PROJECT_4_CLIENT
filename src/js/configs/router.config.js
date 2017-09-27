@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .config(Router);
 
-Router.inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'httpProvider', 'BuildingsShowCtrl', 'RegisterCtrl', 'LoginCtrl', 'BuildingsIndexCtrl', 'BuildingsNewCtrl', 'UsersEditCtrl', 'UsersShowCtrl', 'periodsIndexCtrl', 'periodsShowCtrl'];
+Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 

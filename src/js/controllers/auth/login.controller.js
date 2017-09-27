@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.inject = ['User', 'CurrentUserService', '$state'];
+LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
 function LoginCtrl(User, CurrentUserService, $state) {
   const vm = this;
 

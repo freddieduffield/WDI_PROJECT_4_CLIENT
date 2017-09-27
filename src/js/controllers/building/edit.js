@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .controller('BuildingsEditCtrl', BuildingsEditCtrl);
 
-BuildingsEditCtrl.inject = ['$stateParams', 'Building', '$state'];
+BuildingsEditCtrl.$inject = ['$stateParams', 'Building', '$state'];
 function BuildingsEditCtrl($stateParams, Building, $state) {
   const vm = this;
   vm.building = Building.get($stateParams);

@@ -2,7 +2,7 @@ angular
 .module('ldnFabric')
 .controller('BuildingsShowCtrl', BuildingsShowCtrl);
 
-BuildingsShowCtrl.inject = ['$stateParams', 'Building', 'Material', 'Favourite', 'CurrentUserService', '$state'];
+BuildingsShowCtrl.$inject = ['$stateParams', 'Building', 'Material', 'Favourite', 'CurrentUserService', '$state'];
 function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentUserService, $state) {
   const vm = this;
 

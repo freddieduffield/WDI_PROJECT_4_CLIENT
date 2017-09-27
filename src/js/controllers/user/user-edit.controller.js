@@ -2,5 +2,5 @@
 //  .module('ldnFabric')
 //  .controller('UsersEditCtrl', UsersEditCtrl);
 //
-// // UsersEditCtrl.inject = [];
+// // UsersEditCtrl.$inject = [];
 // // function UsersEditCtrl() {}

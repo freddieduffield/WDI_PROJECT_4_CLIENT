@@ -2,7 +2,7 @@ angular
  .module('ldnFabric')
  .controller('MainCtrl', MainCtrl);
 
-MainCtrl.inject = ['$rootScope', 'CurrentUserService', '$state'];
+MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
 function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
   // vm.addBuilding = addBuilding;
