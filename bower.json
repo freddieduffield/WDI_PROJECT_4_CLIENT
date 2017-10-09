@@ -1,9 +1,9 @@
 {
-  "name": "angular-controllers-2-way-binding",
-  "description": "An intro to angular controllers and 2-way binding.",
+  "name": "Dwellldn",
+  "description": "An app to record multifarious style of london architecture",
   "main": "index.js",
   "authors": [
-    "alexpchin <alex@alexchin.co.uk>"
+    "Fred Duffield <fwhduffield@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",
