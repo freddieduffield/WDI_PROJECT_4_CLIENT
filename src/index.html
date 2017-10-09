@@ -1,61 +1,50 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="ldnFabric">
 <head>
   <meta charset="utf-8">
   <title>morning; silent, bare</title>
   <base href="/" />
-
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6m09rnmEQZhYR00fyEYxL1p3Rq2TYGtI&libraries=places"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-
-
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6m09rnmEQZhYR00fyEYxL1p3Rq2TYGtI&libraries=places"></script>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
+
 <body ng-controller="MainCtrl as main">
   <header>
+    <!-- NAVBAR -->
     <nav ng-hide="homepage " class="navbar navbar-light bg-faded">
-
-
       <a class="navbar-brand" ui-sref="homepage">
-        <img id="map-logo" src="images/header.svg" width="100" height="100" alt="">
-    </a>
+        <img   src="images/header.svg" width="100" height="100" alt="">
+      </a>
 
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
-        <span class="navbar-toggler-icon my-toggler"></span>
-      </button>
 
-      <div class="navbar-collapse collapse" id="collapsingNavbar2">
-        <ul class="navbar-nav mx-auto">
+      <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
           <li class="nav-item">
-            <p class="navbar-text" ui-sref="usersShow({id: vm.user.id})">Welcome, {{ main.user.username }}</p>
-          </li>
-          <!-- <li class="nav-item" ng-show="main.user">
-            <a ui-sref="periodsShow">Periods</a>
-          </li> -->
-          <li class="nav-item">
-            <a ui-sref="buildingsIndex">Architecture</a>
-          </li>
-          <li class="nav-item">
-            <a ui-sref="periodsIndex">Period</a>
+            <a class="navbar-text" ui-sref="buildingsIndex">All Architecture</a>
           </li>
           <li class="nav-item" ng-hide="main.user">
-            <a ui-sref="register">Register</a>
+            <a class="navbar-text" ui-sref="register">Register</a>
           </li>
           <li class="nav-item" ng-hide="main.user">
-            <a ui-sref="login">Login</a>
+            <a class="navbar-text" ui-sref="login">Login</a>
           </li>
           <li class="nav-item" ng-show="main.user">
-            <a ng-click="main.logout()">Logout</a>
+            <a class="navbar-text" ng-click="main.logout()">Logout</a>
+          </li>
+          <li class="nav-item">
           </li>
         </ul>
+        <p class="navbar-text" ui-sref="usersShow({id: vm.user.id})">Welcome, {{ main.user.username }}</p>
+
       </div>
     </nav>
   </header>
-  <main class="container-fluid" ui-view></main>
+  <main class="container" ui-view></main>
 </body>
 </html>

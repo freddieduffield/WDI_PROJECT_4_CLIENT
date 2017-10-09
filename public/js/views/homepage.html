@@ -1,15 +1,27 @@
-<div class="parent">
-  <div class="abosol">
-<a ui-sref="periodsIndex" ><img src="images/header.svg" alt=""></a>
+<!-- <div class="row">
+<div class="col-m-6 icon-build-margin">
+<img src="images/StPauls.svg" width="200" height="200" >
 </div>
-<div class="row center-img">
-  <div class="move-on-up">
+<div class="col-m-6 icon-build-margin">
+<img src="images/BIgBen.svg" width="200" height="200" >
+</div>
+<div class="col-m-6 icon-build-margin">
+<img src="images/lloyds.svg" width="200" height="200" >
+</div>
+<div class="col-m-6 icon-build-margin">
+<img src="images/gher.svg" width="200" height="200">
+</div>
+</div> -->
 
+<div class="row">
+  <ul ng-repeat="period in vm.periods">
+    <li class="col col-xs- col-sm-3 period-link linky" ui-sref="periodsShow({id: period.id})">
+<div ng-mouseenter="hover = true"
+ng-mouseleave="hover = false">
+<img  src="{{period.image}}" width="250" height="250">
+<span ng-show="hover"><h2 >{{period.name}}</h2></span>
+</div>
 
-  <img class="col-xs-6 img-padding" src="images/gher.svg" width="200" height="200" >
-  <img class="col-xs-6 img-padding" src="images/lloyds.svg" width="200" height="200" >
-  <img class="col-xs-6 img-padding" src="images/BIgBen.svg" width="200" height="200" >
-  <img class="col-xs-6 img-padding" src="images/StPauls.svg" width="200" height="200" >
-</div>
-</div>
+    </li>
+  </ul>
 </div>

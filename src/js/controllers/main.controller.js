@@ -2,13 +2,20 @@ angular
  .module('ldnFabric')
  .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
-function MainCtrl($rootScope, CurrentUserService, $state) {
+MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state', 'Period'];
+function MainCtrl($rootScope, CurrentUserService, $state, Period) {
   const vm = this;
   // vm.addBuilding = addBuilding;
   // vm.centerMapOnDestination = centerMapOnDestination;
+  vm.periods = Period.query();
 
+  vm.hoverIn = function(){
+    this.hoverEdit = true;
+  };
 
+  vm.hoverOut = function(){
+    this.hoverEdit = false;
+  };
 
   $rootScope.$on('loggedIn', () => {
     vm.user = CurrentUserService.currentUser;
@@ -22,6 +29,8 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
   vm.logout = () => {
     CurrentUserService.removeUser();
   };
+
+
 
   // function addBuilding(){
   //   console.log(Building);
