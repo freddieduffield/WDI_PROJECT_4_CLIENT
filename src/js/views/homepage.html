@@ -1,27 +1,19 @@
-<!-- <div class="row">
-<div class="col-m-6 icon-build-margin">
-<img src="images/StPauls.svg" width="200" height="200" >
+<div class="container-fluid homepage-background">
+
+
+<div class="row title">
+  <h1>Welcome to Dwell, LDN. <br><em>Mapping the cities architecture</em></h1>
 </div>
-<div class="col-m-6 icon-build-margin">
-<img src="images/BIgBen.svg" width="200" height="200" >
-</div>
-<div class="col-m-6 icon-build-margin">
-<img src="images/lloyds.svg" width="200" height="200" >
-</div>
-<div class="col-m-6 icon-build-margin">
-<img src="images/gher.svg" width="200" height="200">
-</div>
-</div> -->
 
 <div class="row">
   <ul ng-repeat="period in vm.periods">
     <li class="col col-xs- col-sm-3 period-link linky" ui-sref="periodsShow({id: period.id})">
-<div ng-mouseenter="hover = true"
-ng-mouseleave="hover = false">
-<img  src="{{period.image}}" width="250" height="250">
-<span ng-show="hover"><h2 >{{period.name}}</h2></span>
+      <div ng-mouseenter="hover = true"
+      ng-mouseleave="hover = false">
+      <img  src="{{period.image}}" width="250" height="250">
+      <span ng-show="hover"><h2 >{{period.name}}</h2></span>
+    </div>
+  </li>
+</ul>
 </div>
-
-    </li>
-  </ul>
 </div>
