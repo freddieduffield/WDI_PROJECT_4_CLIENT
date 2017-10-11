@@ -13,6 +13,7 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
   vm.addMaterial = addMaterial;
   vm.materialDelete = materialDelete;
   vm.addFavourite = addFavourite;
+  vm.tabs = tabs;
   vm.likedForm = false;
 
 
@@ -22,7 +23,7 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
   function addMaterial(){
     vm.material.user_id = CurrentUserService.currentUser.id;
     vm.material.building_id = parseInt($stateParams.id);
-
+    console.log(vm.material);
     Material
     .save({material: vm.material})
     .$promise
@@ -32,7 +33,7 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
       // $state.reload();
     });
 
-      // $state.go('buildingsShow', $stateParams);
+    // $state.go('buildingsShow', $stateParams);
     // });
   }
 
@@ -57,12 +58,29 @@ function BuildingsShowCtrl($stateParams, Building, Material, Favourite, CurrentU
     console.log(vm.likedForm);
 
     Favourite
-      .save(vm.favourite)
-      .$promise
-      .then(() => {
-        console.log('favourite was saved!');
-        // $state.reload();
-      });
+    .save(vm.favourite)
+    .$promise
+    .then(() => {
+      console.log('favourite was saved!');
+      // $state.reload();
+    });
 
+  }
+
+  function tabs($scope, $window) {
+    $scope.tabs = [
+      { title:'Dynamic Title 1', content:'Dynamic content 1' },
+      { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+    ];
+
+    $scope.alertMe = function() {
+      setTimeout(function() {
+        $window.alert('You\'ve selected the alert tab!');
+      });
+    };
+
+    $scope.model = {
+      name: 'Tabs'
+    };
   }
 }
