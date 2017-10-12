@@ -34,7 +34,7 @@ function googleMap($window) {
             infowindow.open(map, marker);
           });
           var infowindow = new $window.google.maps.InfoWindow({
-            content: building.name
+            content: infoWindowContent
           });
         });
       }, 900);
