@@ -14,15 +14,27 @@ function googleMap($window) {
     link(scope, element) {
       setTimeout(function() {
         const map = new $window.google.maps.Map(element[0], {
-          zoom: 12,
-          center: {lat: 51.5152519, lng: -0.0745329}
+          zoom: 14,
+          center: {lat: 51.5152519, lng: -0.0745329},
+          mapTypeId: 'satellite'
         });
+      //   const infoWindowContent = '<div class="infowindow">'+
+      //     '<img src="{{building.image}}" alt="">'+
+      // '  <a ui-sref="buildingsShow({ id: building.id})">building.name</a>'+
+      //   '</div>'
+
         scope.buildings.forEach(building => {
           console.log(building);
-          new $window.google.maps.Marker({
+          var marker = new $window.google.maps.Marker({
             position: { lat: building.lat, lng: building.long },
             map: map,
             animation: $window.google.maps.Animation.DROP
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+          var infowindow = new $window.google.maps.InfoWindow({
+            content: building.name
           });
         });
       }, 900);
