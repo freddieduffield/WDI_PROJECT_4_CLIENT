@@ -3,9 +3,9 @@
 
   <div class="row">
 
-<div class="circle">
-    <div class="mx-auto d-block">
-      <img class="roundImage image2 main-img img-responsive" src="{{vm.building.image}}" alt="">
+    <div class="circle">
+      <div class="mx-auto d-block">
+        <img class="roundImage image2 main-img img-responsive" src="{{vm.building.image}}" alt="">
       </div>
     </div>
   </div>
@@ -18,105 +18,118 @@
     {{vm.building.description}}
   </div>
 </div>
+<hr>
 
 <!-- <div class="col-xs-3  link-point facebook twitter">
-  <strong>additional material</strong>
+<strong>additional material</strong>
 </div>
 <ul ng-repeat="material in vm.building.materials">
-  <li>
+<li>
 
-    <img src="{{material.image}}">
+<img src="{{material.image}}">
 
-    <h3><strong>{{material.title}}</strong></h3>
-    <p>{{material.body}}</p>
-    <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
-  </li>
+<h3><strong>{{material.title}}</strong></h3>
+<p>{{material.body}}</p>
+<button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
+</li>
 </ul> -->
+<div class="tabs">
+
 
 <form name="outerForm" class="tab-form-demo">
-   <uib-tabset active="activeForm">
-     <uib-tab index="0" heading="Add Comments">
-       <ng-form name="nestedForm">
-         <div class="form-group">
-           <label>subject</label>
-           <input class="form-control" type="text" required value="" id="material-title-input" ng-model="vm.material.title">
-         </div>
-         <div class="form-group">
-           <label for="exampleTextarea" class="col-2 col-form-label">comment</label>
-             <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
-           </div>
-           <div class="form-group">
-             <label for="additional-image-input" class="col-2 col-form-label">Image</label>
-           <input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
-         </div>
-           <div class="form-group">
-             <button ng-submit="addMaterial()" type="submit" class="btn btn-default">Submit</button>
-           </div>
-       </ng-form>
-     </uib-tab>
-     <uib-tab index="1" heading="View Comments">
-       <ul ng-repeat="material in vm.building.materials">
-         <li>
-
-           <img src="{{material.image}}">
-
-           <h3><strong>{{material.title}}</strong></h3>
-           <p>{{material.body}}</p>
-           <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
-         </li>
-       </ul>
-     </uib-tab>
-     <uib-tab index="2" heading="Favourites">
-       <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
-         like
-       </div>
-       <div ng-repeat="users in vm.building.users">
-         {{users.username}}
-       </div>
-     </uib-tab>
-   </uib-tabset>
- </form>
-
+  <!-- ADD COMMENTS -->
+  <uib-tabset active="activeForm">
+    <uib-tab index="0" heading="Add Comments">
+      <ng-form name="nestedForm" class="form-horizontal">
+        <div class="comments-form">
+          <div class="form-group">
+            <label class=" col-sm-2 control-label">Subject</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" required value="" id="material-title-input" ng-model="vm.material.title">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="exampleTextarea">Comment</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="exampleTextarea" rows="4" ng-model="vm.material.body"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="additional-image-input">Image</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button ng-submit="addMaterial()" type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+        </div>
+      </ng-form>
+    </uib-tab>
+    <!--VIEW COMMENTS  -->
+    <uib-tab index="1" heading="View Comments">
+      <ul ng-repeat="material in vm.building.materials">
+        <li>
+          <img src="{{material.image}}">
+          <h3><strong>{{material.title}}</strong></h3>
+          <p>{{material.body}}</p>
+          <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
+        </li>
+      </ul>
+    </uib-tab>
+    <uib-tab index="2" heading="Favourites">
+      <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
+        like
+      </div>
+      <div ng-repeat="users in vm.building.users">
+        {{users.username}}
+      </div>
+    </uib-tab>
+  </uib-tabset>
+</form>
+</div>
 
 
 
 <!-- <div class="col-xs-3 link-point padding-for-links" ui-sref="buildingsEdit({id: vm.building.id})">edit</div>
 <div class="col-xs-3 link-point padding-for-links" ng-click="vm.hideMaterialForm = !vm.hideMaterialForm">
-  add material
+add material
 </div> -->
 
 
 <!-- <form ng-show="vm.hideMaterialForm " ng-submit="vm.addMaterial()">
-  <div class="form-group row">
-    <label for="material-title-input" class="col-2 col-form-label">Title</label>
-    <div class="col-10">
-      <input class="form-control" type="text" value="" id="material-title-input" ng-model="vm.material.title">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="exampleTextarea" class="col-2 col-form-label">Body</label>
-    <div class="col-10">
-      <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="additional-image-input" class="col-2 col-form-label">Image</label>
-    <div class="col-10">
-      <input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-10">
-      <button type="submit" class="btn ">Submit</button>
-    </div>
-  </div>
+<div class="form-group row">
+<label for="material-title-input" class="col-2 col-form-label">Title</label>
+<div class="col-10">
+<input class="form-control" type="text" value="" id="material-title-input" ng-model="vm.material.title">
+</div>
+</div>
+<div class="form-group row">
+<label for="exampleTextarea" class="col-2 col-form-label">Body</label>
+<div class="col-10">
+<textarea class="form-control" id="exampleTextarea" rows="3" ng-model="vm.material.body"></textarea>
+</div>
+</div>
+<div class="form-group row">
+<label for="additional-image-input" class="col-2 col-form-label">Image</label>
+<div class="col-10">
+<input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
+</div>
+</div>
+<div class="form-group row">
+<div class="col-10">
+<button type="submit" class="btn ">Submit</button>
+</div>
+</div>
 </form> -->
 
 <!--
 <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
-  like
+like
 </div>
 
 <div ng-show="vm.likedForm" ng-repeat="users in vm.building.users">
-  {{users.username}}
+{{users.username}}
 </div> -->
