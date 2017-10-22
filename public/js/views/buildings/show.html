@@ -34,61 +34,59 @@
 </li>
 </ul> -->
 <div class="tabs">
-
-
-<form name="outerForm" class="tab-form-demo">
-  <!-- ADD COMMENTS -->
-  <uib-tabset active="activeForm">
-    <uib-tab index="0" heading="Add Comments">
-      <ng-form name="nestedForm" class="form-horizontal">
-        <div class="comments-form">
-          <div class="form-group">
-            <label class=" col-sm-2 control-label">Subject</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" required value="" id="material-title-input" ng-model="vm.material.title">
+  <form name="outerForm" class="tab-form-demo">
+    <!-- ADD COMMENTS -->
+    <uib-tabset active="activeForm">
+      <uib-tab index="0" heading="Add Comments">
+        <ng-form name="nestedForm" class="form-horizontal">
+          <div class="comments-form">
+            <div class="form-group">
+              <label class=" col-sm-2 control-label">Subject</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" required value="" id="material-title-input" ng-model="vm.material.title">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="exampleTextarea">Comment</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" id="exampleTextarea" rows="4" ng-model="vm.material.body"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="additional-image-input">Image</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10 col-sm-offset-2">
+                <button ng-submit="addMaterial()" type="submit" class="btn btn-default">Submit</button>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="exampleTextarea">Comment</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" id="exampleTextarea" rows="4" ng-model="vm.material.body"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="additional-image-input">Image</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" value="" id="additional-image-input" ng-model="vm.material.image">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-              <button ng-submit="addMaterial()" type="submit" class="btn btn-default">Submit</button>
-            </div>
-          </div>
+        </ng-form>
+      </uib-tab>
+      <!--VIEW COMMENTS  -->
+      <uib-tab index="1" heading="View Comments">
+        <ul ng-repeat="material in vm.building.materials">
+          <li>
+            <img src="{{material.image}}">
+            <h3><strong>{{material.title}}</strong></h3>
+            <p>{{material.body}}</p>
+            <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
+          </li>
+        </ul>
+      </uib-tab>
+      <uib-tab index="2" heading="Favourites">
+        <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
+          like
         </div>
-      </ng-form>
-    </uib-tab>
-    <!--VIEW COMMENTS  -->
-    <uib-tab index="1" heading="View Comments">
-      <ul ng-repeat="material in vm.building.materials">
-        <li>
-          <img src="{{material.image}}">
-          <h3><strong>{{material.title}}</strong></h3>
-          <p>{{material.body}}</p>
-          <button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
-        </li>
-      </ul>
-    </uib-tab>
-    <uib-tab index="2" heading="Favourites">
-      <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
-        like
-      </div>
-      <div ng-repeat="users in vm.building.users">
-        {{users.username}}
-      </div>
-    </uib-tab>
-  </uib-tabset>
-</form>
+        <div ng-repeat="users in vm.building.users">
+          {{users.username}}
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </form>
 </div>
 
 

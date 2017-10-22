@@ -31,9 +31,11 @@
           </li>
           <li class="nav-item" ng-show="main.user">
           </li>
-          <li ng-show="main.user" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ main.user.username }}<b class="caret"></b></a>
+          <li ng-show="main.user" class="dropdown welcome-message">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ main.user.username }}
+               <b class="caret"></b></a>
             <ul class="dropdown-menu">
+              <li><a ui-sref="buildingsIndex">all buildings</a></li>
               <!-- <li><a ui-sref="usersShow({id: vm.user.id})">profile</a></li> -->
               <li><a ui-sref="buildingsNew">add a building</a></li>
               <li><a ng-click="main.logout()">logout</a></li>
