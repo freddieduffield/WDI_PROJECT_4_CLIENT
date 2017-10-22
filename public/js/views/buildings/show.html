@@ -20,19 +20,6 @@
 </div>
 <hr>
 
-<!-- <div class="col-xs-3  link-point facebook twitter">
-<strong>additional material</strong>
-</div>
-<ul ng-repeat="material in vm.building.materials">
-<li>
-
-<img src="{{material.image}}">
-
-<h3><strong>{{material.title}}</strong></h3>
-<p>{{material.body}}</p>
-<button ng-click="vm.materialDelete(material.id)" class="btn">X</button>
-</li>
-</ul> -->
 <div class="tabs">
   <form name="outerForm" class="tab-form-demo">
     <!-- ADD COMMENTS -->
@@ -78,11 +65,17 @@
         </ul>
       </uib-tab>
       <uib-tab index="2" heading="Favourites">
-        <div class="col-xs-3 link-point padding-for-links " ng-click="vm.addFavourite()">
-          like
-        </div>
-        <div ng-repeat="users in vm.building.users">
-          {{users.username}}
+        <div class="row">
+
+          <div class="col-xs-3 btn btn-default " ng-click="vm.addFavourite()">
+            like
+          </div>
+          <div class="col-xs-3 indent">
+            <h3>Liked by...</h3>
+            <div class="favourited-user" ng-repeat="users in vm.building.users">
+              {{users.username}}
+            </div>
+          </div>
         </div>
       </uib-tab>
     </uib-tabset>

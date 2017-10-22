@@ -32,6 +32,11 @@
   left: 170px;
   z-index: 2;
 
+  h1{
+    margin-left: 73px;
+    margin-top: -75px;
+    background: rgba(255, 0, 0, 0.2);
+  }
 }
 
 .text-width {
@@ -69,4 +74,17 @@
 
 .tabs {
   margin-top: 20px;
+  .btn{
+    margin-top: 10px;
+  }
+  .indent {
+    background: rgba(255, 0, 0, 0.2);
+    margin: 10px 20px;
+    .favourited-user {
+      height: 50px;
+      width: 70px;
+      margin: 10px;
+      border-radius: 25%;
+    }
+  }
 }
