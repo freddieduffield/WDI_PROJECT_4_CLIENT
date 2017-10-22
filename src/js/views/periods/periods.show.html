@@ -1,4 +1,5 @@
-<img src="/src/images/lloyds.svg" alt="">
+
+<img class="period-imag" src="{{vm.period.image}}" alt="">
 <ul ng-repeat="building in vm.period.buildings">
   <li class="center"><a ui-sref="buildingsShow({ id: building.id})">{{building.name}}</a></li>
 </ul>
